@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Jeza Espiritu — Network Engineer</title>
 <meta name="description" content="Portfolio of Jeza Espiritu — a network engineer crafting elegant, soft, premium digital experiences." />
+<meta http-equiv="X-Content-Type-Options" content="nosniff" />
+<meta http-equiv="X-Frame-Options" content="DENY" />
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+<meta name="robots" content="index,follow" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -311,8 +315,8 @@ footer .links a:hover{transform:scale(1.05)}
         <h1 style="margin-top:1.25rem">Hi, I'm <span class="gradient-text italic" style="font-weight:400">Jeza</span>.<br/>I manage reliable<br/>network operations.</h1>
         <p class="lead" style="margin-top:1.25rem">Network Engineer, Technical Coordinator, and Executive Assistant focused on maintaining stable network, managing server and data center operations, and providing efficient technical and administrative support with accuracy, reliability, and attention to detail.</p>
         <div class="hero-actions">
-          <a href="#contact" class="btn btn-primary">Contact Me <svg class="icon"><use href="#i-arrow-right"/></svg></a>
-          <a href="RESUME.pdf" target="_blank" rel="noopener" class="btn glass" id="resume-btn"><svg class="icon"><use href="#i-download"/></svg>Download Resume</a>
+          <a href="#contact" class="btn btn-primary">Contact me <svg class="icon"><use href="#i-arrow-right"/></svg></a>
+          <button class="btn glass" id="resume-btn"><svg class="icon"><use href="#i-download"/></svg>View resume</button>
         </div>
         <div class="socials">
           <a href="https://github.com/aya" target="_blank" rel="noopener" aria-label="GitHub"><svg class="icon icon-lg"><use href="#i-github"/></svg></a>
@@ -326,7 +330,7 @@ footer .links a:hover{transform:scale(1.05)}
           <div class="glass hero-portrait-frame float">
             <img src="jeza.jpg" alt="Jeza, Network Engineer" width="1024" height="1024"/>
           </div>
-          <div class="glass code-tag t1 float">&lt;Network Engineer/&gt;</div>
+          <div class="glass code-tag t1 float">&lt;div/&gt;</div>
           <div class="glass code-tag t2 float">Technical Coordinator = ✨</div>
         </div>
       </div>
@@ -456,9 +460,8 @@ footer .links a:hover{transform:scale(1.05)}
 </div>
 
 <script>
+(function(){
 const RESUME_URL = "RESUME.pdf";
-
-// Theme toggle
 const root = document.documentElement;
 const themeIcon = document.getElementById('theme-icon');
 function setTheme(t){
@@ -471,8 +474,6 @@ setTheme(saved || (matchMedia('(prefers-color-scheme: dark)').matches?'dark':'li
 document.getElementById('theme-toggle').addEventListener('click',()=>{
   setTheme(root.classList.contains('dark')?'light':'dark');
 });
-
-// Nav scroll + mobile menu
 const navEl = document.getElementById('nav');
 const onScroll=()=>navEl.classList.toggle('scrolled',window.scrollY>8);
 addEventListener('scroll',onScroll,{passive:true});onScroll();
@@ -487,184 +488,36 @@ mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
   mobileMenu.classList.remove('open');
   menuIcon.firstElementChild.setAttribute('href','#i-menu');
 }));
-
-// Skills
 const skillGroups = [
-  {
-    title: "Web Development",
-    items: ["HTML", "CSS", "JavaScript", "PHP"]
-  },
-  {
-    title: "Networking",
-    items: [
-      "Network Troubleshooting",
-      "Server Management",
-      "Data Center Operations",
-      "LAN/WAN Configuration",
-      "System Maintenance",
-      "Technical Support"
-    ]
-  },
-  {
-    title: "Technical Skills",
-    items: [
-      "Hardware Troubleshooting",
-      "Software Installation",
-      "Remote Support",
-      "Network Monitoring",
-      "System Configuration"
-    ]
-  },
-  {
-    title: "Productivity Tools",
-    items: [
-      "Microsoft Excel",
-      "Data Reporting",
-      "Documentation",
-      "Inventory Monitoring",
-      "Google Sheets"
-    ]
-  }
+  {title:"Web Development",items:["HTML","CSS","JavaScript","PHP"]},
+  {title:"Networking",items:["Network Troubleshooting","Server Management","Data Center Operations","LAN/WAN Configuration","System Maintenance","Technical Support"]},
+  {title:"Technical Skills",items:["Hardware Troubleshooting","Software Installation","Remote Support","Network Monitoring","System Configuration"]},
+  {title:"Productivity Tools",items:["Microsoft Excel","Data Reporting","Documentation","Inventory Monitoring","Google Sheets"]}
 ];
-document.getElementById('skills-grid').innerHTML = skillGroups.map((g,i)=>`
-  <div class="glass skill-card reveal" style="transition-delay:${i*80}ms">
-    <h3 class="font-display">${g.title}</h3>
-    <ul class="tag-list">${g.items.map(s=>`<li class="tag">${s}</li>`).join('')}</ul>
-  </div>`).join('');
-
-// Projects
-const projects=[
-  {
-  img:"https://images.unsplash.com/photo-1498050108023-c5249f4df085",
-  title:"Portfolio",
-  description:"A modern, responsive portfolio showcasing design and development skills with smooth animations and dark mode support.",
-  tech:["Vercel","Javascript","CSS","HTML"],
-  demo:"https://marc-portfolio-beige.vercel.app/",
-},
- {
-    img:"https://images.unsplash.com/photo-1584515933487-779824d29309",
-  title:"Infant and Prenatal Immunization Monitoring System with Statistical Analysis",
-  description:"A healthcare system for monitoring infant and prenatal immunization records with statistical reporting and data analysis.",
-  tech:["PHP","Javascript","CSS","HTML"],
-  demo:"https://drive.google.com/drive/folders/1nBE80ILLddPHokL4VLQ_uL3bjR4DSi8a?usp=sharing",
-},
- {
-  img:"https://images.unsplash.com/photo-1581092921461-eab62e97a780",
-  title:"Online QR-Based Inventory System",
-  description:"Real-time inventory system that uses QR codes for efficient item tracking, monitoring, and inventory control.",
-   tech:["PHP","Javascript","CSS","HTML"],
-  demo:"https://drive.google.com/drive/folders/1nBE80ILLddPHokL4VLQ_uL3bjR4DSi8a?usp=sharing",
-},
- {
-  img:"https://images.unsplash.com/photo-1516321318423-f06f85e504b3",
-  title:"Capstone Compilation Application",
-  description:"A centralized application for managing, organizing, and storing capstone project documents and records efficiently.",
-  tech:["PHP","Javascript","CSS","HTML"],
-  demo:"http://sticaps.free.nf/index.php?i=1",
-},
-  
-];
-document.getElementById('projects-grid').innerHTML = projects.map((p,i)=>`
-  <article class="glass project reveal" style="transition-delay:${i*100}ms">
-    <div class="media">
-      <img src="${p.img}" alt="${p.title}" loading="lazy"/>
-      <div class="overlay"></div>
-      <div class="actions">
-        <a class="glass" href="${p.demo}" target="_blank" rel="noopener" aria-label="${p.title} live demo"><svg class="icon"><use href="#i-arrow-up-right"/></svg></a> 
-      </div>
-    </div>
-    <div class="body">
-      <h3 class="font-display">${p.title}</h3>
-      <p class="desc">${p.description}</p>
-      <ul class="techs">${p.tech.map(t=>`<li class="tag outline">${t}</li>`).join('')}</ul>
-    </div>
-  </article>`).join('');
-
-// Experience
-const experience=[
-  {role:"Technical Coordinator/Executive Assistant",org:"International Micro Village Inc.",period:"July 2025 — Now",desc:"Managing technical operations, coordination, and administrative support across daily business workflows."},
-  {role:"IT Support Intern",org:"15th Field Accounting Unit, Philippine Army",period:"February - May 2025",desc:"Provided technical support, troubleshooting, and system maintenance for daily IT operations."},
-  {role:"Capstone Project Manager",org:"Bulacan State Agricultural University",period:"2024 — 2025",desc:"Served as Capstone Project Manager and Programmer, managing project coordination, system development, and testing."},
-];
-document.getElementById('timeline').innerHTML = experience.map((e,i)=>`
-  <li class="reveal" style="transition-delay:${i*100}ms">
-    <span class="dot"></span>
-    <div class="glass card">
-      <div class="row"><h3 class="role">${e.role}</h3><span class="period">${e.period}</span></div>
-      <p class="org">${e.org}</p>
-      <p class="desc">${e.desc}</p>
-    </div>
-  </li>`).join('');
-
-const education=[
-  {title:"Bachelor Of Science in Information Technology",org:"Bulacan State Agricultural University",period:"2021 — 2025"},
-];
-document.getElementById('edu-list').innerHTML = education.map(e=>`
-  <li class="glass edu-card">
-    <div class="row"><h4>${e.title}</h4><span class="period font-mono" style="font-size:.75rem;color:var(--muted-foreground)">${e.period}</span></div>
-    <p>${e.org}</p>
-  </li>`).join('');
-
+document.getElementById('skills-grid').innerHTML = skillGroups.map((g,i)=>`<div class="glass skill-card reveal" style="transition-delay:${i*80}ms"><h3 class="font-display">${g.title}</h3><ul class="tag-list">${g.items.map(s=>`<li class="tag">${s}</li>`).join('')}</ul></div>`).join('');
+const projects=[{img:"https://images.unsplash.com/photo-1498050108023-c5249f4df085",title:"Portfolio",description:"A modern, responsive portfolio showcasing design and development skills with smooth animations and dark mode support.",tech:["Vercel","Javascript","CSS","HTML"],demo:"https://marc-portfolio-beige.vercel.app/"},{img:"https://images.unsplash.com/photo-1584515933487-779824d29309",title:"Infant and Prenatal Immunization Monitoring System with Statistical Analysis",description:"A healthcare system for monitoring infant and prenatal immunization records with statistical reporting and data analysis.",tech:["PHP","Javascript","CSS","HTML"],demo:"https://drive.google.com/drive/folders/1nBE80ILLddPHokL4VLQ_uL3bjR4DSi8a?usp=sharing"},{img:"https://images.unsplash.com/photo-1581092921461-eab62e97a780",title:"Online QR-Based Inventory System",description:"Real-time inventory system that uses QR codes for efficient item tracking, monitoring, and inventory control.",tech:["PHP","Javascript","CSS","HTML"],demo:"https://drive.google.com/drive/folders/1nBE80ILLddPHokL4VLQ_uL3bjR4DSi8a?usp=sharing"},{img:"https://images.unsplash.com/photo-1516321318423-f06f85e504b3",title:"Capstone Compilation Application",description:"A centralized application for managing, organizing, and storing capstone project documents and records efficiently.",tech:["PHP","Javascript","CSS","HTML"],demo:"http://sticaps.free.nf/index.php?i=1"}];
+document.getElementById('projects-grid').innerHTML = projects.map((p,i)=>`<article class="glass project reveal" style="transition-delay:${i*100}ms"><div class="media"><img src="${p.img}" alt="${p.title}" loading="lazy"/><div class="overlay"></div><div class="actions"><a class="glass" href="${p.demo}" target="_blank" rel="noopener" aria-label="${p.title} live demo"><svg class="icon"><use href="#i-arrow-up-right"/></svg></a></div></div><div class="body"><h3 class="font-display">${p.title}</h3><p class="desc">${p.description}</p><ul class="techs">${p.tech.map(t=>`<li class="tag outline">${t}</li>`).join('')}</ul></div></article>`).join('');
+const experience=[{role:"Technical Coordinator/Executive Assistant",org:"International Micro Village Inc.",period:"July 2025 — Now",desc:"Managing technical operations, coordination, and administrative support across daily business workflows."},{role:"IT Support Intern",org:"15th Field Accounting Unit, Philippine Army",period:"February - May 2025",desc:"Provided technical support, troubleshooting, and system maintenance for daily IT operations."},{role:"Capstone Project Manager",org:"Bulacan State Agricultural University",period:"2024 — 2025",desc:"Served as Capstone Project Manager and Programmer, managing project coordination, system development, and testing."}];
+document.getElementById('timeline').innerHTML = experience.map((e,i)=>`<li class="reveal" style="transition-delay:${i*100}ms"><span class="dot"></span><div class="glass card"><div class="row"><h3 class="role">${e.role}</h3><span class="period">${e.period}</span></div><p class="org">${e.org}</p><p class="desc">${e.desc}</p></div></li>`).join('');
+const education=[{title:"Bachelor Of Science in Information Technology",org:"Bulacan State Agricultural University",period:"2021 — 2025"}];
+document.getElementById('edu-list').innerHTML = education.map(e=>`<li class="glass edu-card"><div class="row"><h4>${e.title}</h4><span class="period font-mono" style="font-size:.75rem;color:var(--muted-foreground)">${e.period}</span></div><p>${e.org}</p></li>`).join('');
 const certs=["AWS Certified Cloud Practitioner","Google UX Design Professional","Meta Frontend Developer","Scrum Foundations PSM I"];
-document.getElementById('cert-list').innerHTML = certs.map(c=>`
-  <li class="glass cert-card"><span>${c}</span><span class="dot"></span></li>`).join('');
-
-// Reveal observer
-const io = new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
-},{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+document.getElementById('cert-list').innerHTML = certs.map(c=>`<li class="glass cert-card"><span>${c}</span><span class="dot"></span></li>`).join('');
+const io = new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-
-// Contact form validation
-const form = document.getElementById('contact-form');
-const submitBtn = document.getElementById('submit-btn');
-const submitLabel = document.getElementById('submit-label');
-const submitIcon = document.getElementById('submit-icon');
-function setError(name,msg){
-  const f = form.querySelector(`[data-field="${name}"]`);
-  if(!f) return;
-  if(msg){ f.classList.add('invalid'); f.querySelector('.err').textContent = msg; }
-  else f.classList.remove('invalid');
-}
-function validate(d){
-  const errs={};
-  if(!d.name || d.name.length<1) errs.name='Please enter your name';
-  if(d.name && d.name.length>100) errs.name='Name is too long';
-  if(!d.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email)) errs.email='Please enter a valid email';
-  if(!d.message || d.message.length<5) errs.message='Message is too short';
-  if(d.message && d.message.length>1000) errs.message='Message is too long';
-  return errs;
-}
-form.addEventListener('submit',(e)=>{
-  e.preventDefault();
-  const fd = new FormData(form);
-  const data = {name:(fd.get('name')||'').trim(),email:(fd.get('email')||'').trim(),message:(fd.get('message')||'').trim()};
-  const errs = validate(data);
-  ['name','email','message'].forEach(k=>setError(k,errs[k]));
-  if(Object.keys(errs).length) return;
-  submitLabel.textContent='Message sent';
-  submitIcon.firstElementChild.setAttribute('href','#i-check');
-  form.reset();
-  setTimeout(()=>{ submitLabel.textContent='Send message'; submitIcon.firstElementChild.setAttribute('href','#i-send'); },4000);
-});
-
-// Resume modal
 const modal = document.getElementById('resume-modal');
 const frame = document.getElementById('resume-frame');
-const resumeBtn = document.getElementById('resume-btn');
-if (resumeBtn && resumeBtn.tagName === 'BUTTON') {
-  resumeBtn.addEventListener('click',()=>{
-    frame.src = RESUME_URL;
-    modal.classList.add('open');
-    document.body.style.overflow='hidden';
-  });
-}
-function closeModal(){ modal.classList.remove('open'); frame.src=''; document.body.style.overflow=''; }
+document.getElementById('resume-btn').addEventListener('click',()=>{frame.src = RESUME_URL;modal.classList.add('open');document.body.style.overflow='hidden';});
+function closeModal(){modal.classList.remove('open');frame.src='';document.body.style.overflow='';}
 document.getElementById('modal-close').addEventListener('click',closeModal);
-modal.addEventListener('click',(e)=>{ if(e.target===modal) closeModal(); });
-addEventListener('keydown',(e)=>{ if(e.key==='Escape') closeModal(); });
-
+modal.addEventListener('click',(e)=>{if(e.target===modal) closeModal();});
+addEventListener('keydown',(e)=>{if(e.key==='Escape') closeModal();});
 document.getElementById('year').textContent = new Date().getFullYear();
+document.addEventListener('contextmenu', function(e) { e.preventDefault(); });
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i')) || (e.ctrlKey && (e.key === 'U' || e.key === 'u')) || (e.ctrlKey && e.shiftKey && (e.key === 'J' || e.key === 'j')) || (e.ctrlKey && (e.key === 'S' || e.key === 's'))) { e.preventDefault(); }
+});
+})();
 </script>
 </body>
 </html>
