@@ -1,7 +1,7 @@
 {
-  "buildCommand": "",
+  "buildCommand": "echo 'Static HTML'",
   "outputDirectory": ".",
-  "framework": null,
+  "framework": "html",
   "headers": [
     {
       "source": "/(.*)",
