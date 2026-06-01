@@ -316,7 +316,10 @@ footer .links a:hover{transform:scale(1.05)}
         <p class="lead" style="margin-top:1.25rem">Network Engineer, Technical Coordinator, and Executive Assistant focused on maintaining stable network, managing server and data center operations, and providing efficient technical and administrative support with accuracy, reliability, and attention to detail.</p>
         <div class="hero-actions">
           <a href="#contact" class="btn btn-primary">Contact me <svg class="icon"><use href="#i-arrow-right"/></svg></a>
-          <button class="btn glass" id="resume-btn"><svg class="icon"><use href="#i-download"/></svg>View resume</button>
+          <button id="downloadResumeBtn" type="button" class="btn btn-primary">
+            <span class="btn-text"><svg class="icon"><use href="#i-download"/></svg>Download Resume</span>
+            <span class="btn-arrow">↓</span>
+          </button>
         </div>
         <div class="socials">
           <a href="https://github.com" target="_blank" rel="noopener" aria-label="GitHub"><svg class="icon icon-lg"><use href="#i-github"/></svg></a>
@@ -518,6 +521,40 @@ document.addEventListener('keydown', function(e) {
   if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i')) || (e.ctrlKey && (e.key === 'U' || e.key === 'u')) || (e.ctrlKey && e.shiftKey && (e.key === 'J' || e.key === 'j')) || (e.ctrlKey && (e.key === 'S' || e.key === 's'))) { e.preventDefault(); }
 });
 })();
+
+   // ===== Resume Download Handler =====
+    const downloadResumeBtn = document.getElementById('downloadResumeBtn');
+    downloadResumeBtn.addEventListener('click', async (event) => {
+      event.preventDefault();
+      const resumeUrl = 'RESUME.pdf';
+      const downloadFileName = 'Resume.pdf';
+
+      try {
+        const response = await fetch(resumeUrl, { cache: 'no-store' });
+        if (!response.ok) {
+          throw new Error('Resume file not available');
+        }
+
+        const blob = await response.blob();
+        const blobUrl = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = blobUrl;
+        link.download = downloadFileName;
+        link.style.display = 'none';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(blobUrl);
+      } catch (error) {
+        const fallbackLink = document.createElement('a');
+        fallbackLink.href = resumeUrl;
+        fallbackLink.download = downloadFileName;
+        fallbackLink.style.display = 'none';
+        document.body.appendChild(fallbackLink);
+        fallbackLink.click();
+        document.body.removeChild(fallbackLink);
+      }
+    });
 </script>
 </body>
 </html>
