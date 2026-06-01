@@ -4,9 +4,8 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Jeza Espiritu — Network Engineer</title>
-<meta name="description" content="Portfolio of Jeza Espiritu — a network engineer crafting elegant, soft, premium digital experiences." />
+<meta name="description" content="Portfolio of Jeza Espiritu." />
 <meta http-equiv="X-Content-Type-Options" content="nosniff" />
-<meta http-equiv="X-Frame-Options" content="SAMEORIGIN" />
 <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
 <meta name="robots" content="index,follow" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -455,7 +454,7 @@ footer .links a:hover{transform:scale(1.05)}
         <button class="btn glass" id="modal-close"><svg class="icon"><use href="#i-x"/></svg>Close</button>
       </div>
     </div>
-    <iframe id="resume-frame" title="Resume PDF"></iframe>
+    <embed id="resume-frame" type="application/pdf" style="width:100%;height:100%" />
   </div>
 </div>
 
@@ -507,8 +506,8 @@ const io = new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isInter
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 const modal = document.getElementById('resume-modal');
 const frame = document.getElementById('resume-frame');
-document.getElementById('resume-btn').addEventListener('click',()=>{frame.src = RESUME_URL;modal.classList.add('open');document.body.style.overflow='hidden';});
-function closeModal(){modal.classList.remove('open');frame.src='';document.body.style.overflow='';}
+document.getElementById('resume-btn').addEventListener('click',()=>{frame.src = RESUME_URL;frame.data = RESUME_URL;modal.classList.add('open');document.body.style.overflow='hidden';});
+function closeModal(){modal.classList.remove('open');frame.src='';frame.data='';document.body.style.overflow='';}
 document.getElementById('modal-close').addEventListener('click',closeModal);
 modal.addEventListener('click',(e)=>{if(e.target===modal) closeModal();});
 addEventListener('keydown',(e)=>{if(e.key==='Escape') closeModal();});
