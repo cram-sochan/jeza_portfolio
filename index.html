@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Jeza Espiritu — Network Engineer</title>
-<meta name="description" content="Portfolio of Jeza Espiritu." />
+<meta name="description" content="Portfolio of Jeza Espiritu — a network engineer crafting elegant, soft, premium digital experiences." />
 <meta http-equiv="X-Content-Type-Options" content="nosniff" />
 <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
 <meta name="robots" content="index,follow" />
@@ -315,7 +315,7 @@ footer .links a:hover{transform:scale(1.05)}
         <p class="lead" style="margin-top:1.25rem">Network Engineer, Technical Coordinator, and Executive Assistant focused on maintaining stable network, managing server and data center operations, and providing efficient technical and administrative support with accuracy, reliability, and attention to detail.</p>
         <div class="hero-actions">
           <a href="#contact" class="btn btn-primary">Contact me <svg class="icon"><use href="#i-arrow-right"/></svg></a>
-          <button class="btn glass" id="resume-btn"><svg class="icon"><use href="#i-download"/></svg>View resume</button>
+          <a href="RESUME.pdf" download="Jeza_Espiritu_Resume.pdf" class="btn glass"><svg class="icon"><use href="#i-download"/></svg>Download Resume</a>
         </div>
         <div class="socials">
           <a href="https://github.com" target="_blank" rel="noopener" aria-label="GitHub"><svg class="icon icon-lg"><use href="#i-github"/></svg></a>
@@ -506,7 +506,6 @@ const io = new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isInter
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 const modal = document.getElementById('resume-modal');
 const frame = document.getElementById('resume-frame');
-document.getElementById('resume-btn').addEventListener('click',()=>{frame.src = RESUME_URL;frame.data = RESUME_URL;modal.classList.add('open');document.body.style.overflow='hidden';});
 function closeModal(){modal.classList.remove('open');frame.src='';frame.data='';document.body.style.overflow='';}
 document.getElementById('modal-close').addEventListener('click',closeModal);
 modal.addEventListener('click',(e)=>{if(e.target===modal) closeModal();});

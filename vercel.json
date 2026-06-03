@@ -4,6 +4,13 @@
   "framework": null,
   "headers": [
     {
+      "source": "/RESUME.pdf",
+      "headers": [
+        { "key": "Content-Disposition", "value": "attachment; filename=Jeza_Espiritu_Resume.pdf" },
+        { "key": "Cache-Control", "value": "public, max-age=86400" }
+      ]
+    },
+    {
       "source": "/(.*)",
       "headers": [
         { "key": "X-Content-Type-Options", "value": "nosniff" },
